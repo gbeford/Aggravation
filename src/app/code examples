@@ -6,3 +6,13 @@ for loop example
     <span>Empty list of users</span>
   }
 </ul>
+
+
+form with validation
+https://www.itsolutionstuff.com/post/angular-17-reactive-forms-with-validation-exampleexample.html
+
+form = new FormGroup({
+  name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+  email: new FormControl('', [Validators.required, Validators.email]),
+  body: new FormControl('', Validators.required)
+});

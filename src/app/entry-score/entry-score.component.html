@@ -1,16 +1,15 @@
+<div class="container">
 
-<div>
   <h1>Enter Score</h1>
 
-
-
-<mat-form-field>
-  <mat-label>Select</mat-label>
-  <mat-select>
-    @for (user of gamers; track user) {
-    <mat-option value="user">{{user}}</mat-option>
-
-    }
-  </mat-select>
-</mat-form-field>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <mat-form-field>
+      <mat-label>Select</mat-label>
+      <mat-select formControlName="user">
+        @for (user of gamers; track user) {
+        <mat-option value="user">{{ user }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </form>
 </div>
