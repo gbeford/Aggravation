@@ -1,0 +1,8 @@
+for loop example
+<ul>
+  @for (user of users; track user) {
+    <li>{{ user}}</li>
+  } @empty {
+    <span>Empty list of users</span>
+  }
+</ul>
