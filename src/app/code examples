@@ -16,3 +16,18 @@ form = new FormGroup({
   email: new FormControl('', [Validators.required, Validators.email]),
   body: new FormControl('', Validators.required)
 });
+
+BehaviorSubject
+//   private _items$ = new BehaviorSubject<T[]>([]);
+// get items$() {
+//   return this._items$.asObservable();
+// }
+// get items() {
+//    return this._items$.value;
+// }
+  // public loggedUser = new BehaviorSubject<string>("INITIAL");
+  // castUser = this.loggedUser.asObservable();
+
+  // editUser(newLoggedUser : string){
+  //     this.loggedUser.next(newLoggedUser);
+  // }
