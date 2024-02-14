@@ -20,10 +20,10 @@ score:string = '';
   //   } );
   // }
 
-    //  getSomething() {
-    //   this.service.getScore.subscribe(console.log); // Here you have that name
+     getSomething() {
+      this.service.getScore().subscribe(console.log); // Here you have that name
     //   // You can filter it like (.pipe(filter(name => !!name)) is you don't want undefined value
-    // }
+    }
 
 
 

@@ -3,7 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 export interface IScore {
   score?: string;
-  userName?: string;
+  name?: string;
   round?: string;
 }
 
@@ -14,20 +14,20 @@ export interface IScore {
 
 export class GameService {
   rounds: string[] = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15'];
-  private _$userScore = new BehaviorSubject<String | null>(null);
+  private _$userData = new BehaviorSubject<IScore[] | null>(null);
 
   getRounds() {
     return this.rounds;
   }
 
-  getScore(): Observable<String | null> {
-    return this._$userScore.asObservable();
+  getScore(): Observable<IScore[] | null> {
+    return this._$userData.asObservable();
   }
   // $score = this._$userScore.value;
 
 
-  editScore(score: string | null): void {
-    this._$userScore.next(score);
+  editScore(score: IScore[] | null): void {
+    this._$userData.next(score);
   }
 
 
