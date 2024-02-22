@@ -2,29 +2,43 @@ import { Component } from '@angular/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { GameService, IScore } from '../services/game.service';
+import {
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { GameService } from '../services/game.service';;
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-entry-score',
   standalone: true,
-  imports: [MatFormFieldModule, MatSelectModule, MatInputModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
+  // providers:[GameService],
   templateUrl: './entry-score.component.html',
-  styleUrl: './entry-score.component.scss'
+  styleUrl: './entry-score.component.scss',
 })
-
-
 export class EntryScoreComponent {
-  users: string[] = ['Gina', 'Pat', 'Linda', 'Adam', 'John W', 'John T'];
-  rounds: string[] = [''];
-// userData: IScore$= {score: '', name: '', round: '' };
+  players: string[];
+  rounds: string[];
+  setup = {};
 
-  constructor(private service: GameService) {
+  constructor(private service: GameService, private router: Router) {
     this.rounds = this.service.getRounds();
+    this.players = this.service.getPlayers();
   }
 
   ngOnInit(): void {
-    this.users.sort();
+    this.players.sort();
+    // this.userData$ = this.service.userData$;
   }
 
   form = new FormGroup({
@@ -34,23 +48,15 @@ export class EntryScoreComponent {
   });
 
   submit() {
-    console.log(this.form.value);
-    const scoreValue = this.form.controls['score'].value;
-    // this.userData.score= this.form.controls['score'].value;
-    // this.userData.name= this.form.controls['user'].value;
-    // this.userData.round= this.form.controls['round'].value;
-    // this.userData.score = 453;
-    // this.userData.name='Gina';
-    // this.userData.round= 7;
-     //this.service.editScore(this.userData);
-    //  this.service.editScore.next(this.form.controls['score'].value)
+    const scoreValue = this.form.controls['score'].value ?? '';
+    console.log('user', this.form.controls['user'].value);
+    const score = {
+      score: parseInt(scoreValue),
+      name: this.form.controls['user'].value ?? '',
+      round: this.form.controls['round'].value ?? '',
+    };
+
+    this.service.addUserRound(score);
+    this.router.navigateByUrl('/dashboard');
   }
-
-    // getUserDetails () {
-    //   this.service.editScore(this.form.controls['score'].value).subscribe(
-    //     (results) => {
-
-    //       this._usernext();
-    //       console.log('assetStatuses',this.assetStatuses$)
-    //     }
 }

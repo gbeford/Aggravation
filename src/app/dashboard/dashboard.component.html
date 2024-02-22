@@ -2,21 +2,22 @@
 <main class="main">
   <div class="content">
    <div class="left-side" *ngFor="let scoreList of (scoreList$ | async)">   <!--@for=(let scoreList of (scoreList$ | async) -->
-test
     {{scoreList.name}}
+    {{scoreList.round}}
+    {{scoreList.score}}
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
       <div class="pill-group">
         @for (item of [
-          { title: 'Enter Round', link: 'https://angular.dev/tools/cli' },
-          { title: 'Game Card', routerLink: '/game-card' },
+          { title: 'Enter Round', link: '/score'  },
+          { title: 'Game Card', link: '/game-card' },
           { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
         ]; track item.title) {
           <a
             class="pill"
             [href]="item.link"
-            target="_blank"
+      
             rel="noopener"
           >
             <span>{{ item.title }}</span>
