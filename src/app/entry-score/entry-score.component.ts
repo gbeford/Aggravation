@@ -38,7 +38,7 @@ export class EntryScoreComponent {
 
   ngOnInit(): void {
     this.players.sort();
-    // this.userData$ = this.service.userData$;
+
   }
 
   form = new FormGroup({
@@ -49,7 +49,6 @@ export class EntryScoreComponent {
 
   submit() {
     const scoreValue = this.form.controls['score'].value ?? '';
-    console.log('user', this.form.controls['user'].value);
     const score = {
       score: parseInt(scoreValue),
       name: this.form.controls['user'].value ?? '',
