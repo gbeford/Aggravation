@@ -16,7 +16,7 @@
       <mat-label>Round</mat-label>
       <mat-select formControlName="round">
         @for (round of rounds; track round) {
-        <mat-option [value]="round">{{ round }}</mat-option>
+        <mat-option [value]="round.roundNumber">{{ round.roundNumber }}</mat-option>
         }
       </mat-select>
     </mat-form-field>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GameService } from '../services/game.service';
+import { GameService, IRound } from '../services/game.service';
 
 
 @Component({
@@ -10,6 +10,6 @@ import { GameService } from '../services/game.service';
   styleUrl: './game-card.component.scss'
 })
 export class GameCardComponent {
-  rounds: string[];
+  rounds: IRound[];
   constructor(service: GameService) { this.rounds = service.getRounds(); }
 }
