@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
+//https://www.tektutorialshub.com/angular/angular-subject-example/
+
 export interface IScore {
   score: number;
   name: string;
