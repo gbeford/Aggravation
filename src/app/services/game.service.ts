@@ -14,7 +14,7 @@ export class GameService {
   private userData: IScore[] = [];
 
   constructor() {
-    this.getPlayers();
+    this.setupPlayers();
     console.log('here game service');
   }
 
@@ -30,8 +30,8 @@ export class GameService {
   setupPlayers() {
     this.players.forEach((x) => {
       this.userData.push({ name: x, round: '1', score: 0 });
-      this._userData.next(Object.assign([], this.userData));
     });
+    this._userData.next(Object.assign([], this.userData));
   }
 
   addUserRound(score: IScore): void {
