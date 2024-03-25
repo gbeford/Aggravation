@@ -97,8 +97,8 @@ export class GameService {
   _signalUserData = signal<IScore[]>([]);
 
   constructor() {
-    // this.setupPlayers();
-    this.signal_setupPlayers();
+    this.setupPlayers();
+    // this.signal_setupPlayers();
     console.log('here service');
   }
 
