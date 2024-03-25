@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 export interface IScore {
@@ -28,16 +28,18 @@ export class GameService {
     '14',
     '15',
   ];
-  
+
   players: string[] = ['Gina', 'Pat', 'Linda', 'Adam', 'John W', 'John T'];
 
   private _userData = new BehaviorSubject<IScore[]>([]);
   readonly userData$: Observable<IScore[]> = this._userData.asObservable();
   private userData: IScore[] = [];
 
+  signalUserData = signal<IScore[]>;
+
   constructor() {
     this.setupPlayers();
-    console.log('here');
+    console.log('here service');
   }
 
   getRounds() {
@@ -56,6 +58,13 @@ export class GameService {
     this._userData.next(Object.assign([], this.userData));
   }
 
+  signal_setupPlayers(userData: IScore) {
+    // this.players.forEach((x) => {
+    //   this.signalUserData.set([{ name: x, round: '1', score: 0 }])
+    // });
+   
+  }
+
   addUserRound(score: IScore): void {
     const player = this.userData.find((r) => r.name == score.name);
  
@@ -66,5 +75,9 @@ export class GameService {
       // console.log('this.userData ------>', this.userData);
       this._userData.next(Object.assign([], this.userData));
     }
+  }
+
+  signal_addUserRound(){
+
   }
 }
