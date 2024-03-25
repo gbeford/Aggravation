@@ -1,12 +1,12 @@
-
-
-
 <div class="container">
-  <h1>Game Card</h1>>
-<section>
-  <div>
-    1.
-  </div>
-  <div>2 sets of 3</div>
-</section>
+  <h1>Game Card</h1>
+  <section class="game-card-container">
+    @for (round of rounds; track round.roundNumber) {
+      <div class="round-container">
+        <div>{{ round.roundNumber }}</div>
+        <div>{{ round.title }}</div>
+        <div>{{ round.qualifier }}</div>
+      </div>
+    }
+  </section>
 </div>

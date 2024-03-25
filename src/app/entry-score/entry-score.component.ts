@@ -11,6 +11,7 @@ import {
 } from '@angular/forms';
 import { GameService } from '../services/game.service';;
 import { Router } from '@angular/router';
+import { IRound } from '../services/round';
 
 @Component({
   selector: 'app-entry-score',
@@ -28,7 +29,7 @@ import { Router } from '@angular/router';
 })
 export class EntryScoreComponent {
   players: string[];
-  rounds: string[];
+  rounds: IRound[];
   setup = {};
 
   constructor(private service: GameService, private router: Router) {

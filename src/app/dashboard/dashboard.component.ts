@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { AsyncPipe, CommonModule } from '@angular/common';
-import { GameService, IScore } from '../services/game.service';
+import { GameService } from '../services/game.service';
 import { Observable, of } from 'rxjs';
 import { RouterModule } from '@angular/router';
+import { IScore } from '../services/score';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,11 +14,11 @@ import { RouterModule } from '@angular/router';
 })
 export class DashboardComponent {
   title = 'Aggravation';
-  scoreList$: Observable <IScore[]> = of([]);
+  scoreList$: Observable<IScore[]> = of([]);
 
-  constructor(private service: GameService) {}
+  constructor(private service: GameService) { }
 
   ngOnInit(): void {
-   this.scoreList$ = this.service.userData$;
+    this.scoreList$ = this.service.userData$;
   }
 }
