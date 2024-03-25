@@ -1,21 +1,21 @@
 import { Injectable, signal } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
 import { IScore } from './score';
 import { rounds } from './game-reference';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-export class GameService {
+export class SignalGameService {
   players: string[] = ['Gina', 'Pat', 'Linda', 'Adam', 'John W', 'John T'];
 
-  private _userData = new BehaviorSubject<IScore[]>([]);
-  readonly userData$: Observable<IScore[]> = this._userData.asObservable();
   private userData: IScore[] = [];
+  _signalUserData = signal<IScore[]>([]);
+  private signalUserData: IScore[] = [];
+
 
   constructor() {
-    this.getPlayers();
-    console.log('here game service');
+    this.setupPlayers();
+    console.log('here signal service');
   }
 
   getRounds() {
@@ -30,9 +30,11 @@ export class GameService {
   setupPlayers() {
     this.players.forEach((x) => {
       this.userData.push({ name: x, round: '1', score: 0 });
-      this._userData.next(Object.assign([], this.userData));
+      this._signalUserData.set(this.signalUserData)
+      console.log('signal - players', this.signalUserData);
     });
   }
+
 
   addUserRound(score: IScore): void {
     const player = this.userData.find((r) => r.name == score.name);
@@ -42,7 +44,8 @@ export class GameService {
       player.round = score.round;
       // console.log('player  -->', player);
       // console.log('this.userData ------>', this.userData);
-      this._userData.next(Object.assign([], this.userData));
+      // this._userData.next(Object.assign([], this.userData));
     }
   }
+
 }
