@@ -9,7 +9,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { GameService } from '../services/game.service';;
+import { GameService, IRound } from '../services/game.service';;
 import { Router } from '@angular/router';
 
 @Component({
@@ -28,7 +28,7 @@ import { Router } from '@angular/router';
 })
 export class EntryScoreComponent {
   players: string[];
-  rounds: string[];
+  rounds: IRound[];
   setup = {};
 
   constructor(private service: GameService, private router: Router) {
