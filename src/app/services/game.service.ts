@@ -28,6 +28,7 @@ export class GameService {
     '14',
     '15',
   ];
+  
   players: string[] = ['Gina', 'Pat', 'Linda', 'Adam', 'John W', 'John T'];
 
   private _userData = new BehaviorSubject<IScore[]>([]);
