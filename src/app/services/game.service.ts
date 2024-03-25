@@ -93,11 +93,12 @@ export class GameService {
   private _userData = new BehaviorSubject<IScore[]>([]);
   readonly userData$: Observable<IScore[]> = this._userData.asObservable();
   private userData: IScore[] = [];
-
-  signalUserData = signal<IScore[]>;
+  private signalUserData: IScore[] = [];
+  _signalUserData = signal<IScore[]>([]);
 
   constructor() {
-    this.setupPlayers();
+    // this.setupPlayers();
+    this.signal_setupPlayers();
     console.log('here service');
   }
 
@@ -114,19 +115,27 @@ export class GameService {
     this.players.forEach((x) => {
       this.userData.push({ name: x, round: '1', score: 0 });
     });
+    this.setBehaviorSubject();
+  }
+
+  signal_setupPlayers() {
+    this.players.forEach((x) => {
+      this.userData.push({ name: x, round: '1', score: 0 });
+    });
+    this.setSignal();
+  }
+
+  setBehaviorSubject() {
     this._userData.next(Object.assign([], this.userData));
   }
 
-  signal_setupPlayers(userData: IScore) {
-    // this.players.forEach((x) => {
-    //   this.signalUserData.set([{ name: x, round: '1', score: 0 }])
-    // });
-   
+  setSignal() {
+    this._signalUserData.set(this.signalUserData)
   }
 
   addUserRound(score: IScore): void {
     const player = this.userData.find((r) => r.name == score.name);
- 
+
     if (player) {
       player.score += score.score;
       player.round = score.round;
@@ -136,7 +145,7 @@ export class GameService {
     }
   }
 
-  signal_addUserRound(){
+  signal_addUserRound() {
 
   }
 }
