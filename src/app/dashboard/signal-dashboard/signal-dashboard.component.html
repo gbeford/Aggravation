@@ -1,13 +1,17 @@
 <h1>{{ title }}</h1>
 <main class="main">
   <div class="content">
-    <div class="left-side">
+    <section class="left-side">
+      <!-- <div class=""> -->
       @for (list of scoreList; track list) {
-      {{ list.name }}
-      {{ list.round }}
-      {{ list.score }}
+      <div class="items">
+        <div class="item">{{ list.name }}</div>
+        <div class="item">{{ list.round }}</div>
+        <div class="item">{{ list.score }}</div>
+      </div>
       } @empty { Empty list of scores }
-    </div>
+      <!-- </div> -->
+    </section>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
       <div class="pill-group">
@@ -33,11 +37,3 @@
     </div>
   </div>
 </main>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->

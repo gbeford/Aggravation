@@ -15,7 +15,7 @@ export class SignalGameService {
     console.log('here signal service');
   }
 
-  // set up initial player, round and score
+  // set up initial player, round and score then set the signal
   setupPlayers() {
     const data: IScore[] = [];
     this.players().forEach((x) => {
