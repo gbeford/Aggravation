@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { GameService } from '../../services/game.service';
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { SignalGameService } from '../../services/signal-game.service';
+import { IScore } from '../../services/score';
 
 @Component({
   selector: 'app-signal-dashboard',
@@ -12,11 +13,12 @@ import { RouterModule } from '@angular/router';
 })
 export class SignalDashboardComponent {
   title = 'Aggravation';
-  // scoreList$: Observable <IScore[]> = of([]);
+  scoreList: IScore[] = [];
 
-  constructor(private service: GameService) { }
+  constructor(private service: SignalGameService) { }
 
   ngOnInit(): void {
-    //  this.scoreList$ = this.service.userData$;
+  //  this.scoreList$ = this.service.userData$;
+  // this.scoreList = this.service._playerData;
   }
 }

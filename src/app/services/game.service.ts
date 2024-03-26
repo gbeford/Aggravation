@@ -1,9 +1,10 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { IScore } from './score';
 import { rounds } from './game-reference';
 
 //https://www.tektutorialshub.com/angular/angular-subject-example/
+
 @Injectable({
   providedIn: 'root',
 })
@@ -35,7 +36,7 @@ export class GameService {
     this._userData.next(Object.assign([], this.userData));
   }
 
-  addUserRound(score: IScore): void {
+  updateUserRound(score: IScore): void {
     const player = this.userData.find((r) => r.name == score.name);
 
     if (player) {

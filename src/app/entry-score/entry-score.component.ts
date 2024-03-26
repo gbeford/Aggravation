@@ -56,7 +56,7 @@ export class EntryScoreComponent {
       round: this.form.controls['round'].value ?? '',
     };
 
-    this.service.addUserRound(score);
+    this.service.updateUserRound(score);
     this.router.navigateByUrl('/dashboard');
   }
 }

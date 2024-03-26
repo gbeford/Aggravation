@@ -6,12 +6,10 @@ import { rounds } from './game-reference';
   providedIn: 'root'
 })
 export class SignalGameService {
-  players: string[] = ['Gina', 'Pat', 'Linda', 'Adam', 'John W', 'John T'];
+  players= signal(['Gina', 'Pat', 'Linda', 'Adam', 'John W', 'John T']);
 
-  private userData: IScore[] = [];
-  _signalUserData = signal<IScore[]>([]);
-  private signalUserData: IScore[] = [];
-
+  private playerData: IScore[] = [];
+  _playerData = signal<IScore[]>([]);
 
   constructor() {
     this.setupPlayers();
@@ -29,15 +27,15 @@ export class SignalGameService {
   // set up initial player, round and score
   setupPlayers() {
     this.players.forEach((x) => {
-      this.userData.push({ name: x, round: '1', score: 0 });
-      this._signalUserData.set(this.signalUserData)
-      console.log('signal - players', this.signalUserData);
+      this.playerData.push({ name: x, round: '1', score: 0 });
+      this._playerData.set(this.playerData)
+      console.log('signal - players', this.playerData);
     });
   }
 
 
-  addUserRound(score: IScore): void {
-    const player = this.userData.find((r) => r.name == score.name);
+  updatePlayerRound(score: IScore): void {
+    const player = this.playerData.find((r) => r.name == score.name);
 
     if (player) {
       player.score += score.score;
@@ -45,6 +43,7 @@ export class SignalGameService {
       // console.log('player  -->', player);
       // console.log('this.userData ------>', this.userData);
       // this._userData.next(Object.assign([], this.userData));
+      this._playerData.set(this.playerData)
     }
   }
 
