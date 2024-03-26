@@ -1,0 +1,36 @@
+<div class="container layout">
+  <h1>Enter Score</h1>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <section>
+
+      <mat-form-field>
+        <mat-label>User</mat-label>
+        <mat-select formControlName="user">
+          @for (player of players; track player) {
+          <mat-option [value]="player">{{ player }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Round</mat-label>
+        <mat-select formControlName="round">
+          @for (round of rounds; track round) {
+          <mat-option [value]="round.roundNumber">{{round.roundNumber}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="">
+        <mat-label>score</mat-label>
+        <input
+          matInput
+          placeholder="what is the count"
+          formControlName="score"
+        />
+      </mat-form-field>
+    </section>
+    <div>
+      <button mat-button color="primary">Primary</button>
+    </div>
+  </form>
+</div>

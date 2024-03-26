@@ -4,11 +4,12 @@ import { TestComponent } from './test/test.component';
 import { GameCardComponent } from './game-card/game-card.component';
 import { EntryScoreComponent } from './entry-score/entry-score.component';
 import { SignalDashboardComponent } from './dashboard/signal-dashboard/signal-dashboard.component';
+import { SignalEntryFormComponent } from './signal-entry-form/signal-entry-form.component';
 
 export const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'test', component: TestComponent },
   { path: 'game-card', component: GameCardComponent },
   { path: 'score', component: EntryScoreComponent },
-  { path: 'signal', component: SignalDashboardComponent }
+  { path: 'signal', component: SignalDashboardComponent },
+  { path: 'entry', component: SignalEntryFormComponent}
 ];

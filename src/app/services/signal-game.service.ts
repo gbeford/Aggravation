@@ -6,45 +6,32 @@ import { rounds } from './game-reference';
   providedIn: 'root'
 })
 export class SignalGameService {
-  players= signal(['Gina', 'Pat', 'Linda', 'Adam', 'John W', 'John T']);
-
-  private playerData: IScore[] = [];
-  _playerData = signal<IScore[]>([]);
+  players = signal(['Gina', 'Pat', 'Linda', 'Adam', 'John W', 'John T']);
+  playerData = signal<IScore[]>([]);
+  playerRound = signal(rounds);
 
   constructor() {
     this.setupPlayers();
     console.log('here signal service');
   }
 
-  getRounds() {
-    return rounds;
-  }
-
-  getPlayers() {
-    return this.players;
-  }
-
   // set up initial player, round and score
   setupPlayers() {
-    this.players.forEach((x) => {
-      this.playerData.push({ name: x, round: '1', score: 0 });
-      this._playerData.set(this.playerData)
-      console.log('signal - players', this.playerData);
+    const data: IScore[] = [];
+    this.players().forEach((x) => {
+      data.push({ name: x, round: '1', score: 0 });
     });
+    this.playerData.set(data);
   }
 
-
   updatePlayerRound(score: IScore): void {
-    const player = this.playerData.find((r) => r.name == score.name);
+    this.playerData.update(value => {
+      const player = value.find((r) => r.name == score.name)!; // ! It tells TypeScript that even though something looks like it could be null, it can trust you that it's not:
 
-    if (player) {
       player.score += score.score;
       player.round = score.round;
-      // console.log('player  -->', player);
-      // console.log('this.userData ------>', this.userData);
-      // this._userData.next(Object.assign([], this.userData));
-      this._playerData.set(this.playerData)
-    }
+      return value;
+    })
   }
 
 }

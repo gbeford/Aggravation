@@ -9,36 +9,35 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { GameService } from '../services/game.service';
+
 import { Router } from '@angular/router';
+import { SignalGameService } from '../services/signal-game.service';
 import { IRound } from '../services/round';
 
+
 @Component({
-  selector: 'app-entry-score',
+  selector: 'app-signal-entry-form',
   standalone: true,
-  imports: [
-    MatFormFieldModule,
+  imports: [MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule,
-  ],
-  // providers:[GameService],
-  templateUrl: './entry-score.component.html',
-  styleUrl: './entry-score.component.scss',
+    ReactiveFormsModule,],
+  templateUrl: './signal-entry-form.component.html',
+  styleUrl: './signal-entry-form.component.scss'
 })
-export class EntryScoreComponent {
-  players: string[];
-  rounds: IRound[];
-  // setup = {};
+export class SignalEntryFormComponent {
+  players: string[] = [];
+  rounds: IRound[] = [];
 
-  constructor(private service: GameService, private router: Router) {
-    this.rounds = this.service.getRounds();
-    this.players = this.service.getPlayers();
+  constructor(private service: SignalGameService, private router: Router) {
+    this.players = service.players().sort();
+    this.rounds = service.playerRound();
+    console.log('players', this.players);
   }
 
   ngOnInit(): void {
-    this.players.sort();
+    // this.players.sort();
 
   }
 
@@ -56,7 +55,7 @@ export class EntryScoreComponent {
       round: this.form.controls['round'].value ?? '',
     };
 
-    this.service.updateUserRound(score);
-    this.router.navigateByUrl('/dashboard');
+    this.service.updatePlayerRound(score);
+    this.router.navigateByUrl('/signal');
   }
 }

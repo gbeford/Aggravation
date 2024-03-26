@@ -15,10 +15,11 @@ export class SignalDashboardComponent {
   title = 'Aggravation';
   scoreList: IScore[] = [];
 
-  constructor(private service: SignalGameService) { }
+  constructor(private service: SignalGameService) {
+    this.scoreList = service.playerData();
+  }
 
   ngOnInit(): void {
-  //  this.scoreList$ = this.service.userData$;
-  // this.scoreList = this.service._playerData;
+
   }
 }

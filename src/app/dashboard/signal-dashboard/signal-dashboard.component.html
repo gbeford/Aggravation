@@ -1,17 +1,17 @@
 <h1>{{ title }}</h1>
 <main class="main">
   <div class="content">
-    <!-- <div class="left-side">
-      @for (scoreList of (scoreList$ | async);track scoreList.name) {
-      {{ scoreList.name }}
-      {{ scoreList.round }}
-      {{ scoreList.score }}
+    <div class="left-side">
+      @for (list of scoreList; track list) {
+      {{ list.name }}
+      {{ list.round }}
+      {{ list.score }}
       } @empty { Empty list of scores }
-    </div> -->
+    </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
       <div class="pill-group">
-        @for (item of [ { title: 'Enter Round', link: '/score' }, { title: 'Game
+        @for (item of [ { title: 'Enter Round', link: '/entry' }, { title: 'Game
         Card', link: '/game-card' }, { title: 'Angular DevTools', link:
         'https://angular.dev/tools/devtools' }, ]; track item.title) {
         <a class="pill" [routerLink]="item.link" rel="noopener">
