@@ -2,15 +2,13 @@
 <main class="main">
   <div class="content">
     <section class="left-side">
-      <!-- <div class=""> -->
       @for (list of scoreList; track list) {
-      <div class="items">
-        <div class="item">{{ list.name }}</div>
-        <div class="item">{{ list.round }}</div>
+      <div class="score-results">
+        <div>{{ list.name }}</div>
+        <div class="item round">{{ list.round }}</div>
         <div class="item">{{ list.score }}</div>
       </div>
       } @empty { Empty list of scores }
-      <!-- </div> -->
     </section>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
