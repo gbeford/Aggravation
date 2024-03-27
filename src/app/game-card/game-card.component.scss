@@ -1,19 +1,57 @@
 .container {
     display: block;
     margin: 20px;
+
+    h1 {
+        font-size: 2em;
+        letter-spacing: 0;
+    }
 }
 
 .game-card-container {
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 30em;
 }
 
 .round-container {
     display: flex;
     justify-content: space-between;
+    color: white;
+    font-size: 1.5em;
+    font-weight: 500;
+    height: 1.5em;
+    align-items: center;
+    filter: alpha(opacity=70);
+    -moz-opacity: 0.7;
+    opacity: 0.7;
+
+    .round-number {
+        width: 1.5em;
+        margin-left: 1em;
+    }
+
+    .rule {
+        width: 7em;
+    }
 }
 
-.round-container:hover {
-    background-color: yellow;
+.opaque {
+    filter: alpha(opacity=100);
+    -moz-opacity: 1;
+    opacity: 1;
+}
+
+.dashboard-link{
+    display: flex;
+    margin-top: 2em;
+    font-size: 1.15em;
+}
+
+.dashboard-link:link {
+    color: #dc267f;
+}
+
+.dashboard-link:visited{
+    color: #785ef0;
 }

@@ -56,18 +56,14 @@ main {
   min-height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
   padding: 1rem;
   box-sizing: inherit;
   position: relative;
 }
 
-.angular-logo {
-  max-width: 9.2rem;
-}
-
 .content {
   display: flex;
+  align-self: center;
   justify-content: space-around;
   width: 100%;
   max-width: 700px;
@@ -150,6 +146,28 @@ main {
 
 .social-links a:hover svg path {
   fill: var(--gray-900);
+}
+
+.left-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 1.5em;
+  min-height: 200px;
+}
+
+.table-header {
+  font-weight: 700;
+}
+
+.score-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.score-item-container {
+  min-width: 5em;
 }
 
 @media screen and (max-width: 650px) {
