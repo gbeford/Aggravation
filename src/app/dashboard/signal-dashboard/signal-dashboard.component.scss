@@ -1,11 +1,12 @@
 h1 {
   display: flex;
   justify-content: center;
+  margin-top: 100px;
 }
 
 main {
   width: 100%;
-  min-height: 100%;
+  top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,6 +32,9 @@ main {
 .left-side {
   display: flex;
   justify-content: space-around;
+  border: solid 1px;
+  border-radius: 8px;
+  padding: 10px 0 0 10px;
 }
 
 .score-results {
@@ -50,13 +54,18 @@ main {
 
 .result-label {
   font-weight: 800;
+  padding-top: 10px;
 }
 
 .label-item {
-  padding: 10px 0 20px 0;
+  padding: 13px 0 20px 0;
 }
 
 @media screen and (max-width: 650px) {
+  h1 {
+    margin-top: 30px;
+  }
+
   .content {
     flex-direction: column;
     width: max-content;
@@ -71,6 +80,12 @@ main {
 
   .left-side {
     flex-direction: column;
+    padding: 10px 15px 0 10px;
+  }
+
+  .result-label {
+    // padding-right: 220px;
+    display: none;
   }
 
   .show-results {
@@ -80,6 +95,16 @@ main {
   }
 
   .round {
-    padding: 0;
+    padding: 0 0 5px 0;
+    margin-top: -20px;
+  }
+
+  .score-results {
+    padding: 0 5px 25px 10px;
+    border-bottom: solid 1px;
+  }
+
+  .moblie-item {
+    margin-top: 15px;
   }
 }
