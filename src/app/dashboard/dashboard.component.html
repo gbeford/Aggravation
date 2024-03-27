@@ -1,11 +1,18 @@
-<h1>{{ title }}</h1>
 <main class="main">
+  <h1 class="game-title">{{ title }}</h1>
   <div class="content">
     <div class="left-side">
+      <div class="score-container">
+        <div class="score-item-container table-header">Player</div>
+        <div class="score-item-container table-header">Round</div>
+        <div class="score-item-container table-header">Score</div>
+      </div>
       @for (scoreList of (scoreList$ | async);track scoreList.name) {
-      {{ scoreList.name }}
-      {{ scoreList.round }}
-      {{ scoreList.score }}
+        <div class="score-container">
+          <div class="score-item-container">{{ scoreList.name }}</div>
+          <div class="score-item-container">{{ scoreList.round }}</div>
+          <div class="score-item-container">{{ scoreList.score }}</div>
+        </div>
       } @empty { Empty list of scores }
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
