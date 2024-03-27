@@ -26,8 +26,8 @@ export class SignalGameService {
 
   updatePlayerRound(score: IScore): void {
     this.playerData.update(value => {
-      const player = value.find((r) => r.name == score.name)!; // ! It tells TypeScript that even though something looks like it could be null, it can trust you that it's not:
-
+      // ! It tells TypeScript that even though something looks like it could be null, it can trust that it's not:
+      const player = value.find((r) => r.name == score.name)!;
       player.score += score.score;
       player.round = score.round;
       return value;
