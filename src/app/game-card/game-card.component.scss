@@ -11,7 +11,8 @@
 .game-card-container {
     display: flex;
     flex-direction: column;
-    width: 30em;
+    min-width: 25em;
+    max-width: 30%;
 }
 
 .round-container {
@@ -54,4 +55,11 @@
 
 .dashboard-link:visited{
     color: #785ef0;
+}
+
+@media screen and (max-width: 650px) {
+    .round-container {
+        font-size: 1.25em;
+        max-width: 95%;
+    }
 }
