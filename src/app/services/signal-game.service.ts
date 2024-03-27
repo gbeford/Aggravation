@@ -6,7 +6,7 @@ import { rounds } from './game-reference';
   providedIn: 'root'
 })
 export class SignalGameService {
-  players = signal(['Gina', 'Pat', 'Linda', 'Adam', 'John W', 'John T']);
+  players = signal(['Gina', 'Pat', 'Linda', 'Adam', 'John W', 'John T', '6']);
   playerData = signal<IScore[]>([]);
   playerRound = signal(rounds);
 

@@ -16,7 +16,7 @@ export class SignalDashboardComponent {
   scoreList: IScore[] = [];
 
   constructor(private service: SignalGameService) {
-    this.scoreList = service.playerData();
+    this.scoreList = service.playerData().sort((firstItem, secondItem) => firstItem.name.localeCompare(secondItem.name));
   }
 
   ngOnInit(): void {
