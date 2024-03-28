@@ -1,60 +1,58 @@
-<h1>{{ title }}</h1>
 <main class="main">
-  <div class="content">
-    <div class="left-side-content">
-      <div class="result-label">
-        <div>Player:</div>
-        <div class="label-item">Round:</div>
-        <div>Score:</div>
-      </div>
-      <!-- <section class="left-side">
-        @for (list of scoreList; track list) {
-        <div class="score-results">
-          <div class="item mobile-item">{{ list.name }}</div>
-          <div class="item round">{{ list.round }}</div>
-          <div class="item score">{{ list.score }}</div>
-        </div>
-        } @empty { Empty list of scores }
-      </section> -->
-      <section class="left-side">
-        @for (list of scoreList; track list) {
-        <mat-card class="card">
-          <mat-card-header class="header">
-            <mat-card-title>
-              <span>Player:</span>
-              {{ list.name }}</mat-card-title
-            >
-          </mat-card-header>
-          <mat-card-content>
-            <div class="item round">{{ list.round }}</div>
-            <div class="item score">{{ list.score }}</div>
-          </mat-card-content>
-        </mat-card>
-        } @empty { Empty list of scores }
-      </section>
-    </div>
+  <div>
+    <h1>{{ title }}</h1>
+  </div>
 
-    <div class="right-side">
-      <div class="pill-group">
-        @for (item of [ { title: 'Enter Round', link: '/entry' }, { title: 'Game
-        Card', link: '/game-card' }, { title: 'Angular DevTools', link:
-        'https://angular.dev/tools/devtools' }, ]; track item.title) {
-        <a class="pill" [routerLink]="item.link" rel="noopener">
-          <span>{{ item.title }}</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="14"
-            viewBox="0 -960 960 960"
-            width="14"
-            fill="currentColor"
-          >
-            <path
-              d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"
-            />
-          </svg>
-        </a>
-        }
-      </div>
+  <div class="left-side-content">
+    <section class="left-side">
+      @for (list of scoreList; track list) {
+      <mat-card class="card">
+        <mat-card-header class="header">
+          <mat-card-title>
+            <!-- <span class="material-icons md-dark">face</span> -->
+            <mat-icon
+              aria-hidden="false"
+              aria-label="Example home icon"
+              fontIcon="person"
+            ></mat-icon>
+            <div>{{ list.name }}</div>
+            <div class="player">Player</div>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="score-results">
+          <div class="item round">
+            <div>Round:</div>
+            {{ list.round }}
+          </div>
+          <div class="item">
+            <div>Score:</div>
+            <span class="score">{{ list.score }}</span>
+          </div>
+        </mat-card-content>
+      </mat-card>
+      } @empty { Empty list of scores }
+    </section>
+  </div>
+
+  <div class="right-side">
+    <div class="pill-group">
+      @for (item of [ { title: 'Enter Round', link: '/entry' }, { title: 'Game
+      Card', link: '/game-card' }, ]; track item.title) {
+      <a class="pill" [routerLink]="item.link" rel="noopener">
+        <span>{{ item.title }}</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="14"
+          viewBox="0 -960 960 960"
+          width="14"
+          fill="currentColor"
+        >
+          <path
+            d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"
+          />
+        </svg>
+      </a>
+      }
     </div>
   </div>
 </main>

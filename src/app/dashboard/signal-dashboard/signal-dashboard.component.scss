@@ -1,25 +1,22 @@
 h1 {
-  display: flex;
-  justify-content: center;
   margin-top: 100px;
 }
 
 main {
   width: 100%;
-  top: 20px;
+  margin-top: 20px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
   box-sizing: inherit;
-  position: relative;
 }
 
 .left-side-content {
   display: flex;
   justify-content: space-around;
   width: 100%;
-  max-width: 700px;
+  margin-top: 50px;
   margin-bottom: 3rem;
 }
 
@@ -30,6 +27,10 @@ main {
   gap: 1.25rem;
 }
 
+.pill {
+  background: #68EFAD;
+}
+
 .left-side {
   display: flex;
   justify-content: space-around;
@@ -38,39 +39,44 @@ main {
 
 .card {
   margin-left: 20px;
-  width: 125px;
+  width: 200px;
 }
 
 .header {
   background-color: #691A99;
   color: white;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  display: flex;
+  justify-content: center;
+}
+
+.player {
+  font-size: 12px;
+}
+
+mat-icon {
+  padding-left: 5px;
+}
+
+.score-results {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 20px
 }
 
 .item {
-  // display: flex;
-  // justify-content: center;
   font-weight: 800;
 }
 
 .round {
-  color: #9B26AF;
-  font-weight: 800;
-  padding: 10px 0 20px 0;
+  align-items: center;
 }
 
 .score {
   font-size: 20px;
   color: #68EFAD;
-}
-
-.result-label {
-  padding-top: 25px;
-}
-
-.label-item {
-  padding: 13px 0 20px 0;
 }
 
 @media screen and (max-width: 650px) {
@@ -86,11 +92,6 @@ main {
   .left-side {
     flex-direction: column;
     padding: 10px 15px 0 10px;
-  }
-
-  .result-label {
-    // padding-right: 220px;
-    display: none;
   }
 
   .round {

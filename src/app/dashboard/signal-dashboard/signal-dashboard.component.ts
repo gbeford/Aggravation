@@ -3,12 +3,13 @@ import { AsyncPipe, CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SignalGameService } from '../../services/signal-game.service';
 import { IScore } from '../../services/score';
-import {MatCardModule} from '@angular/material/card'
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-signal-dashboard',
   standalone: true,
-  imports: [AsyncPipe, CommonModule, RouterModule, MatCardModule],
+  imports: [AsyncPipe, CommonModule, RouterModule, MatCardModule, MatIconModule],
   templateUrl: './signal-dashboard.component.html',
   styleUrl: './signal-dashboard.component.scss'
 })
