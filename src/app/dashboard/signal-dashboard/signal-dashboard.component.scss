@@ -15,7 +15,7 @@ main {
   position: relative;
 }
 
-.content {
+.left-side-content {
   display: flex;
   justify-content: space-around;
   width: 100%;
@@ -23,45 +23,50 @@ main {
   margin-bottom: 3rem;
 }
 
-.divider {
-  width: 1px;
-  background: var(--red-to-pink-to-purple-vertical-gradient);
-  margin-inline: 0.5rem;
+.pill-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1.25rem;
 }
 
 .left-side {
   display: flex;
   justify-content: space-around;
-  border: solid 1px;
-  border-radius: 8px;
-  background: #03DAC5;
-  padding: 10px 0 0 10px;
+
 }
 
-.score-results {
-  color:white;
-  padding: 10px 30px 0 10px;
-  background-color: #6200EE;
-  margin-right: 20px;
-  margin-bottom: 20px;
-  width: 50px;
-  border-radius: 8px;
+.card {
+  margin-left: 20px;
+  width: 125px;
+}
+
+.header {
+  background-color: #691A99;
+  color: white;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .item {
-  display: flex;
-  justify-content: center;
+  // display: flex;
+  // justify-content: center;
+  font-weight: 800;
 }
 
 .round {
-  color: #03DAC5;
+  color: #9B26AF;
   font-weight: 800;
   padding: 10px 0 20px 0;
 }
 
+.score {
+  font-size: 20px;
+  color: #68EFAD;
+}
+
 .result-label {
-  font-weight: 800;
-  padding-top: 10px;
+  padding-top: 25px;
 }
 
 .label-item {
@@ -73,16 +78,9 @@ main {
     margin-top: 30px;
   }
 
-  .content {
+  .left-side-content {
     flex-direction: column;
     width: max-content;
-  }
-
-  .divider {
-    height: 1px;
-    width: 100%;
-    background: var(--red-to-pink-to-purple-horizontal-gradient);
-    margin-block: 1.5rem;
   }
 
   .left-side {
@@ -95,23 +93,8 @@ main {
     display: none;
   }
 
-  .show-results {
-    display: flex;
-    flex-direction: row;
-    padding: reset;
-  }
-
   .round {
     padding: 0 0 5px 0;
     margin-top: -20px;
-  }
-
-  .score-results {
-    padding: 0 5px 25px 10px;
-    border-bottom: solid 1px;
-  }
-
-  .moblie-item {
-    margin-top: 15px;
   }
 }
