@@ -1,26 +1,27 @@
 <main class="main">
-  <h1 class="game-title">{{ title }}</h1>
+  <div class="title-container"> 
+    <h1 class="game-title">{{ title }}</h1>
+  </div>
   <div class="content">
     <div class="left-side">
       <div class="score-container">
         <div class="score-item-container table-header">Player</div>
         <div class="score-item-container table-header">Round</div>
-        <div class="score-item-container table-header">Score</div>
+        <div class="score-item-container table-header score">Score</div>
       </div>
       @for (scoreList of (scoreList$ | async);track scoreList.name) {
         <div class="score-container">
           <div class="score-item-container">{{ scoreList.name }}</div>
           <div class="score-item-container">{{ scoreList.round }}</div>
-          <div class="score-item-container">{{ scoreList.score }}</div>
+          <div class="score-item-container score">{{ scoreList.score }}</div>
         </div>
       } @empty { Empty list of scores }
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
       <div class="pill-group">
-        @for (item of [ { title: 'Enter Round', link: '/score' }, { title: 'Game
-        Card', link: '/game-card' }, { title: 'Angular DevTools', link:
-        'https://angular.dev/tools/devtools' }, ]; track item.title) {
+        @for (item of [ { title: 'Enter Round', link: '/score' }, 
+        { title: 'Game Card', link: '/game-card' }, ]; track item.title) {
         <a class="pill" [routerLink]="item.link" rel="noopener">
           <span>{{ item.title }}</span>
           <svg
