@@ -1,9 +1,11 @@
 @import './scss/material-overides.scss';
 @import './scss/pill.scss';
 
+
 html,
 body {
-  background-color: #BDBDBD;
+  // background-color: #EEEEEE;
+  background-color: #424242;
   height: 100%;
   margin: 0;
   --bright-blue: oklch(51.01% 0.274 263.83);

@@ -14,8 +14,22 @@
   font-size: 14px;
 }
 
-.mat-mdc-card-content {
-  // display: flex;
-  // padding: 0 16px;
-  // flex-direction: row;
+.mat-mdc-card-avatar {
+  display: flex;
+  justify-content: center;
+  width: 100% !important;
+  margin-bottom: 10px !important;
+  ;
+}
+
+.mat-mdc-card-header-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+// .mat-mdc-form-field:has(.entry-input) {
+.mat-mdc-form-field {
+  display: flex !important;
+  // flex-direction: row !important;
 }

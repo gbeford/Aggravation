@@ -8,16 +8,20 @@
       @for (list of scoreList; track list) {
       <mat-card class="card">
         <mat-card-header class="header">
-          <mat-card-title>
-            <!-- <span class="material-icons md-dark">face</span> -->
+          <div mat-card-avatar>
             <mat-icon
               aria-hidden="false"
               aria-label="Example home icon"
               fontIcon="person"
             ></mat-icon>
-            <div>{{ list.name }}</div>
-            <div class="player">Player</div>
+          </div>
+          <mat-card-title>
+            <!-- <span class="material-icons md-dark">face</span> -->
+            <div class="name">{{ list.name }}</div>
           </mat-card-title>
+          <mat-card-subtitle>
+            <div class="player">Player</div>
+          </mat-card-subtitle>
         </mat-card-header>
         <mat-card-content class="score-results">
           <div class="item round">

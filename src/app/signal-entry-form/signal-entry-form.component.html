@@ -3,9 +3,8 @@
 
   <form [formGroup]="form" (ngSubmit)="submit()">
     <section>
-
-      <mat-form-field>
-        <mat-label>User</mat-label>
+      <mat-form-field class="entry-input">
+        <mat-label>Player</mat-label>
         <mat-select formControlName="user">
           @for (player of players; track player) {
           <mat-option [value]="player">{{ player }}</mat-option>
@@ -16,7 +15,9 @@
         <mat-label>Round</mat-label>
         <mat-select formControlName="round">
           @for (round of rounds; track round) {
-          <mat-option [value]="round.roundNumber">{{round.roundNumber}}</mat-option>
+          <mat-option [value]="round.roundNumber">{{
+            round.roundNumber
+          }}</mat-option>
           }
         </mat-select>
       </mat-form-field>
@@ -24,13 +25,14 @@
         <mat-label>score</mat-label>
         <input
           matInput
-          placeholder="what is the count"
+          placeholder="What's the card total"
           formControlName="score"
         />
       </mat-form-field>
     </section>
     <div>
-      <button mat-button color="primary">Primary</button>
+      <button mat-raised-button type="submit" color="primary">Submit</button>
+      <!-- [disabled]="!form.form.valid" -->
     </div>
   </form>
 </div>
