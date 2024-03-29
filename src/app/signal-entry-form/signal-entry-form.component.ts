@@ -4,6 +4,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import {
+  AbstractControl,
   FormControl,
   FormGroup,
   FormsModule,
@@ -30,6 +31,7 @@ import { IRound } from '../services/round';
 export class SignalEntryFormComponent {
   players: string[] = [];
   rounds: IRound[] = [];
+  submitted = false;
 
   constructor(private service: SignalGameService, private router: Router) {
     this.players = service.players().sort();
@@ -37,23 +39,27 @@ export class SignalEntryFormComponent {
     console.log('players', this.players);
   }
 
-  ngOnInit(): void {
-    // this.players.sort();
-
-  }
-
   form = new FormGroup({
-    user: new FormControl('', Validators.required),
-    round: new FormControl('', Validators.required),
-    score: new FormControl('', Validators.required),
+    userControl: new FormControl('', Validators.required),
+    roundControl: new FormControl('', Validators.required),
+    scoreControl: new FormControl('', Validators.required),
   });
 
-  submit() {
-    const scoreValue = this.form.controls['score'].value ?? '';
+  get f(): { [key: string]: AbstractControl }{
+    return this.form.controls;
+  }
+  
+  onSubmit() {
+    this.submitted = true;
+
+    if (this.form.invalid) {
+      return;
+    }
+    const scoreValue = this.form.controls['scoreControl'].value ?? '';
     const score = {
       score: parseInt(scoreValue),
-      name: this.form.controls['user'].value ?? '',
-      round: this.form.controls['round'].value ?? '',
+      name: this.form.controls['userControl'].value ?? '',
+      round: this.form.controls['roundControl'].value ?? '',
     };
 
     this.service.updatePlayerRound(score);

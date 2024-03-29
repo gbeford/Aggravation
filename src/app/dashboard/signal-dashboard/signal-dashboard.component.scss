@@ -34,9 +34,7 @@ main {
 }
 
 .header {
-  background-color: $deep-purple-a700;
   background-color: $green-a200;
-  // color: white;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   display: flex;
@@ -89,8 +87,10 @@ mat-icon {
 }
 
 .pill {
-  background: $purple-500;
-  color: white;
+  background: $deep-purple-500;
+  color: $blue-grey-50;
+  font-weight: 500;
+  font-size: 16px;
 }
 
 @media screen and (max-width: 650px) {

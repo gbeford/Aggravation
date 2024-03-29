@@ -28,8 +28,6 @@
   align-items: center;
 }
 
-// .mat-mdc-form-field:has(.entry-input) {
-.mat-mdc-form-field {
-  display: flex !important;
-  // flex-direction: row !important;
-}
+// .mat-mdc-form-field:has(#entry-form) {
+//   display: flex !important;
+// }

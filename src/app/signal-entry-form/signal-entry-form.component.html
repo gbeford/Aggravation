@@ -1,19 +1,23 @@
 <div class="container layout">
   <h1>Enter Score</h1>
 
-  <form [formGroup]="form" (ngSubmit)="submit()">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <section>
-      <mat-form-field class="entry-input">
+      <mat-form-field id="entry-form">
         <mat-label>Player</mat-label>
-        <mat-select formControlName="user">
+        <mat-select formControlName="userControl" required>
           @for (player of players; track player) {
           <mat-option [value]="player">{{ player }}</mat-option>
           }
         </mat-select>
       </mat-form-field>
+      @if (submitted && f['userControl'].errors) {
+      @if(f['userControl'].errors['required']) {
+      <mat-error style="color: red">Please pick a player.</mat-error>
+      } }
       <mat-form-field>
         <mat-label>Round</mat-label>
-        <mat-select formControlName="round">
+        <mat-select formControlName="roundControl">
           @for (round of rounds; track round) {
           <mat-option [value]="round.roundNumber">{{
             round.roundNumber
@@ -21,18 +25,29 @@
           }
         </mat-select>
       </mat-form-field>
+      @if (submitted && f['roundControl'].errors) {
+      @if(f['roundControl'].errors['required']) {
+      <mat-error style="color: red">What round was the player on?</mat-error>
+      } }
       <mat-form-field class="">
         <mat-label>score</mat-label>
         <input
           matInput
           placeholder="What's the card total"
-          formControlName="score"
+          formControlName="scoreControl"
+          type="number"
         />
       </mat-form-field>
+      @if (submitted && f['scoreControl'].errors &&
+      !f['scoreControl'].errors['required']) {
+      <mat-error>Please enter players score.</mat-error>
+
+      @if (f['scoreControl'].errors['required']) {
+      <mat-error>Players score is required.<strong>required</strong></mat-error>
+      } }
     </section>
     <div>
-      <button mat-raised-button type="submit" color="primary">Submit</button>
-      <!-- [disabled]="!form.form.valid" -->
+      <button mat-raised-button color="primary" type="submit">Submit</button>
     </div>
   </form>
 </div>
