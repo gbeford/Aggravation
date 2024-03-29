@@ -2,12 +2,15 @@
   <h1>Game Card</h1>
   <section class="game-card-container">
     @for (round of rounds; track round.roundNumber) {
-        <div class="round-container" id="round-container-{{ round.roundNumber }}" [style.background-color]="getColor()" (click)="toggleOpacity(round.roundNumber)">
+        <div class="round-container"
+          (click)="highlightRow(round.roundNumber)" 
+          [class.highlight]="rowClicked === round.roundNumber"
+        >
           <div class="round-number">{{ round.roundNumber }}</div>
           <div class="rule">{{ round.title }}</div>
           <div class="rule">{{ round.qualifier }}</div>
         </div>
     }
   </section>
-  <a href="/dashboard" class="dashboard-link">Back to dashboard</a>
+  <a mat-flat-button href="/signal" class="dashboard-link">Back to dashboard</a>
 </div>
