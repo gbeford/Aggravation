@@ -28,6 +28,10 @@
   align-items: center;
 }
 
+.mat-form-field-invalid {
+  margin-bottom: 1em !important;
+}
+
 // .mat-mdc-form-field:has(#entry-form) {
 //   display: flex !important;
 // }

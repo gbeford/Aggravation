@@ -10,8 +10,9 @@
           <mat-option [value]="player">{{ player }}</mat-option>
           }
         </mat-select>
-        @if (f['userControl'].errors && (f['userControl'].touched || submitted) &&
-        f['userControl'].errors['required']) {
+        @if (f['userControl'].errors && f['userControl'].errors['required']
+        && (f['userControl'].touched || submitted)
+        ) {
           <mat-error>Please select a player</mat-error>
         }
       </mat-form-field>
@@ -25,8 +26,9 @@
           }}</mat-option>
           }
         </mat-select>
-        @if (f['roundControl'].errors && (f['roundControl'].touched || submitted) &&
-        f['roundControl'].errors['required']) {
+        @if (f['roundControl'].errors && f['roundControl'].errors['required']
+        && (f['roundControl'].touched || submitted)
+        ) {
           <mat-error>Please select the round</mat-error>
         }
       </mat-form-field>
@@ -38,9 +40,10 @@
           formControlName="scoreControl"
           type="number"
         />
-        @if (f['scoreControl'].errors && (f['scoreControl'].touched || submitted) &&
-        f['scoreControl'].errors['required']) {
-          <mat-error>Please enter player's score</mat-error>
+        @if (f['scoreControl'].errors && f['scoreControl'].errors['required']
+        && (f['scoreControl'].touched || submitted)
+        ) {
+          <mat-error class="error-container">Please enter player's score</mat-error>
         }
       </mat-form-field>
     </section>
