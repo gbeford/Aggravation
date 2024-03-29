@@ -6,6 +6,7 @@ import { IScore } from '../../services/score';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 
+//https://www.freecodecamp.org/news/how-to-make-bar-and-line-charts-using-chartjs-in-angular/
 @Component({
   selector: 'app-signal-dashboard',
   standalone: true,
