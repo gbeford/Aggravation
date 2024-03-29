@@ -7,9 +7,7 @@ import {
   AbstractControl,
   FormControl,
   FormGroup,
-  FormGroupDirective,
   FormsModule,
-  NgForm,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
@@ -17,15 +15,6 @@ import {
 import { Router } from '@angular/router';
 import { SignalGameService } from '../services/signal-game.service';
 import { IRound } from '../services/round';
-import { ErrorStateMatcher } from '@angular/material/core';
-
-// /** Error when invalid control is dirty, touched, or submitted. */
-// export class MyErrorStateMatcher implements ErrorStateMatcher {
-//   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-//     const isSubmitted = form && form.submitted;
-//     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-//   }
-// }
 
 @Component({
   selector: 'app-signal-entry-form',
