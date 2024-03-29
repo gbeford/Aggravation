@@ -12,6 +12,7 @@
         </mat-select>
       </mat-form-field>
       @if (submitted && f['userControl'].errors) {
+      <mat-error style="color: red">Please pick a player.</mat-error>
       @if(f['userControl'].errors['required']) {
       <mat-error style="color: red">Please pick a player.</mat-error>
       } }
@@ -29,7 +30,7 @@
       @if(f['roundControl'].errors['required']) {
       <mat-error style="color: red">What round was the player on?</mat-error>
       } }
-      <mat-form-field class="">
+      <mat-form-field class="form-field">
         <mat-label>score</mat-label>
         <input
           matInput
@@ -38,13 +39,12 @@
           type="number"
         />
       </mat-form-field>
-      @if (submitted && f['scoreControl'].errors &&
-      !f['scoreControl'].errors['required']) {
+      @if (submitted && f['scoreControl'].errors) {
       <mat-error>Please enter players score.</mat-error>
-
-      @if (f['scoreControl'].errors['required']) {
-      <mat-error>Players score is required.<strong>required</strong></mat-error>
-      } }
+      } @if (f['scoreControl'].errors && f['scoreControl'].touched &&
+      f['scoreControl'].errors['required']) {
+      <mat-error>Please enter players score. it's required</mat-error>
+      }
     </section>
     <div>
       <button mat-raised-button color="primary" type="submit">Submit</button>
