@@ -1,37 +1,26 @@
 import { Component } from '@angular/core';
 import { GameService } from '../services/game.service';
 import { IRound } from '../services/round';
-
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-game-card',
   standalone: true,
-  imports: [],
+  imports: [
+    MatButtonModule,
+  ],
   templateUrl: './game-card.component.html',
   styleUrl: './game-card.component.scss'
 })
 export class GameCardComponent {
   rounds: IRound[];
-  color: string = '';
-  colorIndex = 0;
+  rowClicked = 0;
   constructor(service: GameService) { 
     this.rounds = service.getRounds();
   }
 
-  getColor(): string {
-    const colorsArray = ['#fe6100', '#785ef0', '#dc267f'];
-    this.color = colorsArray[this.colorIndex];
-    this.colorIndex++;
-    if (this.colorIndex > 2) this.colorIndex = 0;
-    return this.color;
-  }
-
-  toggleOpacity(roundNumber: number): void {
-    const list = document.querySelectorAll('div.round-container');
-    list.forEach((element) => {
-      element.classList.remove('opaque');
-    });
-    const selectedElement = document.getElementById(`round-container-${roundNumber}`);
-    selectedElement?.classList.add('opaque');
+  highlightRow(roundNumber: number) {
+    if (this.rowClicked === roundNumber) this.rowClicked = -1;
+    else this.rowClicked = roundNumber;
   }
 }

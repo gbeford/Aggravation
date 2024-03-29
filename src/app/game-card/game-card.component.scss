@@ -1,3 +1,5 @@
+@use '@material/theme/color-palette' as *;
+
 .container {
     display: block;
     margin: 2em;
@@ -5,6 +7,7 @@
     h1 {
         font-size: 2em;
         letter-spacing: 0;
+        color: white;
     }
 }
 
@@ -18,15 +21,13 @@
 .round-container {
     display: flex;
     justify-content: space-between;
-    color: white;
     font-size: 1.5em;
     font-weight: 500;
     height: 1.5em;
     align-items: center;
+    background-color: white;
     margin: 2px;
-    filter: alpha(opacity=65);
-    -moz-opacity: 0.65;
-    opacity: 0.65;
+    border-radius: 5px;
 
     .round-number {
         width: 1.5em;
@@ -38,25 +39,20 @@
     }
 }
 
-.opaque {
-    filter: alpha(opacity=100);
-    -moz-opacity: 1;
-    opacity: 1;
+.highlight {
     transition: 0.3s ease;
+    background-color: $green-a200;
 }
 
-.dashboard-link{
-    display: flex;
+.dashboard-link {
     margin-top: 2em;
     font-size: 1.15em;
+    letter-spacing: .0675rem;
 }
 
-.dashboard-link:link {
-    color: #dc267f;
-}
-
-.dashboard-link:visited{
-    color: #785ef0;
+.mat-mdc-unelevated-button {
+    color: white !important;
+    background-color: $purple-500 !important;
 }
 
 @media screen and (max-width: 650px) {
