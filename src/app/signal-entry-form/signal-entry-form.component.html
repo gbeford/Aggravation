@@ -3,20 +3,20 @@
 
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <section>
-      <mat-form-field id="entry-form">
+      <mat-form-field class="form-field" id="entry-form">
         <mat-label>Player</mat-label>
         <mat-select formControlName="userControl" required>
           @for (player of players; track player) {
           <mat-option [value]="player">{{ player }}</mat-option>
           }
         </mat-select>
+        @if (f['userControl'].errors && (f['userControl'].touched || submitted) &&
+        f['userControl'].errors['required']) {
+          <mat-error>Please select a player</mat-error>
+        }
       </mat-form-field>
-      @if (submitted && f['userControl'].errors) {
-      <mat-error style="color: red">Please pick a player.</mat-error>
-      @if(f['userControl'].errors['required']) {
-      <mat-error style="color: red">Please pick a player.</mat-error>
-      } }
-      <mat-form-field>
+
+      <mat-form-field class="form-field">
         <mat-label>Round</mat-label>
         <mat-select formControlName="roundControl">
           @for (round of rounds; track round) {
@@ -25,26 +25,24 @@
           }}</mat-option>
           }
         </mat-select>
+        @if (f['roundControl'].errors && (f['roundControl'].touched || submitted) &&
+        f['roundControl'].errors['required']) {
+          <mat-error>Please select the round</mat-error>
+        }
       </mat-form-field>
-      @if (submitted && f['roundControl'].errors) {
-      @if(f['roundControl'].errors['required']) {
-      <mat-error style="color: red">What round was the player on?</mat-error>
-      } }
       <mat-form-field class="form-field">
-        <mat-label>score</mat-label>
+        <mat-label>Score</mat-label>
         <input
           matInput
           placeholder="What's the card total"
           formControlName="scoreControl"
           type="number"
         />
+        @if (f['scoreControl'].errors && (f['scoreControl'].touched || submitted) &&
+        f['scoreControl'].errors['required']) {
+          <mat-error>Please enter player's score</mat-error>
+        }
       </mat-form-field>
-      @if (submitted && f['scoreControl'].errors) {
-      <mat-error>Please enter players score.</mat-error>
-      } @if (f['scoreControl'].errors && f['scoreControl'].touched &&
-      f['scoreControl'].errors['required']) {
-      <mat-error>Please enter players score. it's required</mat-error>
-      }
     </section>
     <div>
       <button mat-raised-button color="primary" type="submit">Submit</button>
