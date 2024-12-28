@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AsyncPipe, CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SignalGameService } from '../../services/signal-game.service';
 import { IScore } from '../../services/score';
@@ -12,7 +12,7 @@ import { BarChartComponent } from '../../chart/bar-chart.component';
 @Component({
   selector: 'app-signal-dashboard',
   standalone: true,
-  imports: [AsyncPipe, CommonModule, RouterModule, MatCardModule, MatIconModule, BarChartComponent],
+  imports: [ CommonModule, RouterModule, MatCardModule, MatIconModule, BarChartComponent],
   templateUrl: './signal-dashboard.component.html',
   styleUrl: './signal-dashboard.component.scss'
 })
