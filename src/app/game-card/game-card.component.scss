@@ -1,5 +1,3 @@
-@use '@material/theme/color-palette' as *;
-
 .container {
     display: block;
     margin: 2em;
@@ -41,7 +39,7 @@
 
 .highlight {
     transition: 0.3s ease;
-    background-color: $green-a200;
+    background-color: #69f0ae;
 }
 
 .dashboard-link {
@@ -52,7 +50,7 @@
 
 .mat-mdc-unelevated-button {
     color: white !important;
-    background-color: $purple-500 !important;
+    background-color: #673ab7 !important;
 }
 
 @media screen and (max-width: 650px) {

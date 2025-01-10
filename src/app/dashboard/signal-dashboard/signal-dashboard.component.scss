@@ -1,7 +1,5 @@
-@use '@material/theme/color-palette' as *;
-
 h1 {
-  color: $blue-grey-50;
+  color: #eceff1;
   margin-top: 50px;
 }
 
@@ -41,7 +39,7 @@ main {
 }
 
 .header {
-  background-color: $green-a200;
+  background-color:  #69f0ae;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   display: flex;
@@ -82,7 +80,7 @@ mat-icon {
 
 .score {
   font-size: 20px;
-  color: $deep-purple-a700;
+  color: #6200ea;
 }
 
 .pill-group {
@@ -93,8 +91,8 @@ mat-icon {
 }
 
 .pill {
-  background: $deep-purple-500;
-  color: $blue-grey-50;
+  background: #6200ea;
+  color: #eceff1;
   font-weight: 500;
   font-size: 16px;
 }
