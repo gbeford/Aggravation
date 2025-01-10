@@ -6,11 +6,10 @@ import { BaseChartDirective } from 'ng2-charts';
 //https://github.com/valor-software/ng2-charts 
 
 @Component({
-  selector: 'app-chart',
-  standalone: true,
-  imports: [BaseChartDirective],
-  templateUrl: './bar-chart.component.html',
-  styleUrl: './bar-chart.component.scss'
+    selector: 'app-chart',
+    imports: [BaseChartDirective],
+    templateUrl: './bar-chart.component.html',
+    styleUrl: './bar-chart.component.scss'
 })
 export class BarChartComponent implements OnInit {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective<'bar'> | undefined;

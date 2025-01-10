@@ -17,15 +17,14 @@ import { SignalGameService } from '../services/signal-game.service';
 import { IRound } from '../services/round';
 
 @Component({
-  selector: 'app-signal-entry-form',
-  standalone: true,
-  imports: [MatFormFieldModule,
-    MatSelectModule,
-    MatInputModule,
-    FormsModule,
-    ReactiveFormsModule, MatButtonModule],
-  templateUrl: './signal-entry-form.component.html',
-  styleUrl: './signal-entry-form.component.scss'
+    selector: 'app-signal-entry-form',
+    imports: [MatFormFieldModule,
+        MatSelectModule,
+        MatInputModule,
+        FormsModule,
+        ReactiveFormsModule, MatButtonModule],
+    templateUrl: './signal-entry-form.component.html',
+    styleUrl: './signal-entry-form.component.scss'
 })
 export class SignalEntryFormComponent {
   players: string[] = [];
@@ -61,7 +60,8 @@ export class SignalEntryFormComponent {
       round: this.form.controls['roundControl'].value ?? '',
     };
 
-    this.service.updatePlayerRound(score);
+    this.service.updatePlayerRound(score); 
+    this.form.reset();
     this.router.navigateByUrl('/signal');
   }
 }

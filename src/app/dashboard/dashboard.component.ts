@@ -6,11 +6,10 @@ import { RouterModule } from '@angular/router';
 import { IScore } from '../services/score';
 
 @Component({
-  selector: 'app-dashboard',
-  standalone: true,
-  imports: [AsyncPipe, CommonModule, RouterModule],
-  templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.scss'
+    selector: 'app-dashboard',
+    imports: [AsyncPipe, CommonModule, RouterModule],
+    templateUrl: './dashboard.component.html',
+    styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent {
   title = 'Aggravation';
