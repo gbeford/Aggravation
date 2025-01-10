@@ -19,14 +19,20 @@ import { BarChartComponent } from '../../chart/bar-chart.component';
 export class SignalDashboardComponent {
   title = 'Aggravation';
   scoreList: IScore[] = [];
+ 
   public chart: any;
 
   constructor(private service: SignalGameService) {
+var bob = this.service.playerData();
+      // this.scoreList = parsedValue.sort((firstItem: IScore, secondItem: IScore) => firstItem.name.localeCompare(secondItem.name));    
+   console.log('!!!! service.playerData()', bob);
+
     this.scoreList = service.playerData().sort((firstItem, secondItem) => firstItem.name.localeCompare(secondItem.name));
-  }
+
+
+  console.log('!!!! scoreList', this.scoreList);
+}
 
   ngOnInit(): void {
   }
-
-
 }
