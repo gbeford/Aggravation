@@ -60,7 +60,8 @@ export class SignalEntryFormComponent {
       round: this.form.controls['roundControl'].value ?? '',
     };
 
-    this.service.updatePlayerRound(score);
+    this.service.updatePlayerRound(score); 
+    this.form.reset();
     this.router.navigateByUrl('/signal');
   }
 }
