@@ -14,18 +14,17 @@ import { Router } from '@angular/router';
 import { IRound } from '../services/round';
 
 @Component({
-  selector: 'app-entry-score',
-  standalone: true,
-  imports: [
-    MatFormFieldModule,
-    MatSelectModule,
-    MatInputModule,
-    FormsModule,
-    ReactiveFormsModule,
-  ],
-  // providers:[GameService],
-  templateUrl: './entry-score.component.html',
-  styleUrl: './entry-score.component.scss',
+    selector: 'app-entry-score',
+    imports: [
+        MatFormFieldModule,
+        MatSelectModule,
+        MatInputModule,
+        FormsModule,
+        ReactiveFormsModule,
+    ],
+    // providers:[GameService],
+    templateUrl: './entry-score.component.html',
+    styleUrl: './entry-score.component.scss'
 })
 export class EntryScoreComponent {
   players: string[];

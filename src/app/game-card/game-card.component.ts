@@ -4,13 +4,12 @@ import { IRound } from '../services/round';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'app-game-card',
-  standalone: true,
-  imports: [
-    MatButtonModule,
-  ],
-  templateUrl: './game-card.component.html',
-  styleUrl: './game-card.component.scss'
+    selector: 'app-game-card',
+    imports: [
+        MatButtonModule,
+    ],
+    templateUrl: './game-card.component.html',
+    styleUrl: './game-card.component.scss'
 })
 export class GameCardComponent {
   rounds: IRound[];
