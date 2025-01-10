@@ -7,7 +7,7 @@ import { SignalDashboardComponent } from './dashboard/signal-dashboard/signal-da
 import { SignalEntryFormComponent } from './signal-entry-form/signal-entry-form.component';
 
 export const routes: Routes = [
-  { path: '', component: SignalDashboardComponent },
+  { path: '', redirectTo: '/signal', pathMatch: 'full' }, // Default route
   { path: 'dashboard', component: DashboardComponent },
   { path: 'game-card', component: GameCardComponent },
   { path: 'score', component: EntryScoreComponent },
