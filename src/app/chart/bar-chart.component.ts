@@ -3,10 +3,11 @@ import { SignalGameService } from '../services/signal-game.service';
 import { Chart, ChartConfiguration, ChartData, ChartEvent } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 
-//https://github.com/valor-software/ng2-charts 
+//https://github.com/valor-software/ng2-charts
 
 @Component({
     selector: 'app-chart',
+    standalone: true,
     imports: [BaseChartDirective],
     templateUrl: './bar-chart.component.html',
     styleUrl: './bar-chart.component.scss'

@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 
 @Component({
     selector: 'app-game-card',
+    standalone: true,
     imports: [
         MatButtonModule,
     ],
@@ -14,7 +15,7 @@ import { MatButtonModule } from '@angular/material/button';
 export class GameCardComponent {
   rounds: IRound[];
   rowClicked = 0;
-  constructor(service: GameService) { 
+  constructor(service: GameService) {
     this.rounds = service.getRounds();
   }
 

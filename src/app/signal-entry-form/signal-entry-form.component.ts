@@ -18,6 +18,7 @@ import { IRound } from '../services/round';
 
 @Component({
     selector: 'app-signal-entry-form',
+    standalone: true,
     imports: [MatFormFieldModule,
         MatSelectModule,
         MatInputModule,
@@ -60,7 +61,7 @@ export class SignalEntryFormComponent {
       round: this.form.controls['roundControl'].value ?? '',
     };
 
-    this.service.updatePlayerRound(score); 
+    this.service.updatePlayerRound(score);
     this.form.reset();
     this.router.navigateByUrl('/signal');
   }

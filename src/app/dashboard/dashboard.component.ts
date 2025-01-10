@@ -7,6 +7,7 @@ import { IScore } from '../services/score';
 
 @Component({
     selector: 'app-dashboard',
+    standalone: true,
     imports: [AsyncPipe, CommonModule, RouterModule],
     templateUrl: './dashboard.component.html',
     styleUrl: './dashboard.component.scss'

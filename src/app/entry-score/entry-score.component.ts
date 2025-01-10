@@ -15,6 +15,7 @@ import { IRound } from '../services/round';
 
 @Component({
     selector: 'app-entry-score',
+    standalone: true,
     imports: [
         MatFormFieldModule,
         MatSelectModule,

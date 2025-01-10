@@ -11,6 +11,7 @@ import { BarChartComponent } from '../../chart/bar-chart.component';
 //https://www.freecodecamp.org/news/how-to-make-bar-and-line-charts-using-chartjs-in-angular/
 @Component({
     selector: 'app-signal-dashboard',
+    standalone: true,
     imports: [CommonModule, RouterModule, MatCardModule, MatIconModule, BarChartComponent],
     templateUrl: './signal-dashboard.component.html',
     styleUrl: './signal-dashboard.component.scss'
