@@ -9,9 +9,9 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { GameService } from '../services/game.service';
 import { Router } from '@angular/router';
-import { IRound } from '../services/round';
+import { IRound } from '../../services/round';
+import { GameService } from '../../services/behavior-subject/game.service';
 
 @Component({
     selector: 'app-entry-score',

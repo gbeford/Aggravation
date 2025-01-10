@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { IScore } from './score';
-import { rounds } from './game-reference';
+import { rounds } from '../game-reference';
+import { IScore } from '../score';
+
 
 //https://www.tektutorialshub.com/angular/angular-subject-example/
 

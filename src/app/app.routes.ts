@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { GameCardComponent } from './game-card/game-card.component';
-import { EntryScoreComponent } from './entry-score/entry-score.component';
+import { EntryScoreComponent } from './entry-score/behavior-subject-entry/entry-score.component';
 import { SignalDashboardComponent } from './dashboard/signal-dashboard/signal-dashboard.component';
-import { SignalEntryFormComponent } from './signal-entry-form/signal-entry-form.component';
+import { DashboardComponent } from './dashboard/behavior-subject-dashboard/dashboard.component';
+import { SignalEntryFormComponent } from './entry-score/signal-entry-form/signal-entry-form.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/signal', pathMatch: 'full' }, // Default route

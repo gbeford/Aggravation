@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { SignalGameService } from '../services/signal-game.service';
+import { SignalGameService } from '../services/signal/signal-game.service';
 import { Chart, ChartConfiguration, ChartData, ChartEvent } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 

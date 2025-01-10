@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { GameService } from '../services/game.service';
 import { IRound } from '../services/round';
 import { MatButtonModule } from '@angular/material/button';
+import { GameService } from '../services/behavior-subject/game.service';
 
 @Component({
     selector: 'app-game-card',

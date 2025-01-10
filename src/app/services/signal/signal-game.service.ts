@@ -1,6 +1,6 @@
 import { Injectable, signal } from '@angular/core';
-import { IScore } from './score';
-import { rounds } from './game-reference';
+import { IScore } from '../score';
+import { rounds } from '../game-reference';
 
 @Injectable({
   providedIn: 'root'

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { SignalGameService } from '../../services/signal-game.service';
+import { SignalGameService } from '../../services/signal/signal-game.service';
 import { IScore } from '../../services/score';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';

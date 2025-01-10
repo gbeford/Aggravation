@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -7,14 +7,16 @@ import {
   AbstractControl,
   FormControl,
   FormGroup,
+  FormGroupDirective,
   FormsModule,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
 
 import { Router } from '@angular/router';
-import { SignalGameService } from '../services/signal-game.service';
-import { IRound } from '../services/round';
+import { IRound } from '../../services/round';
+import { SignalGameService } from '../../services/signal/signal-game.service';
+
 
 @Component({
     selector: 'app-signal-entry-form',
@@ -28,6 +30,8 @@ import { IRound } from '../services/round';
     styleUrl: './signal-entry-form.component.scss'
 })
 export class SignalEntryFormComponent {
+  @ViewChild(FormGroupDirective) formDirective!: FormGroupDirective;
+
   players: string[] = [];
   rounds: IRound[] = [];
   submitted = false;
@@ -43,6 +47,11 @@ export class SignalEntryFormComponent {
     roundControl: new FormControl('', Validators.required),
     scoreControl: new FormControl('', Validators.required),
   });
+
+  resetForm() {
+    this.form.reset();
+    this.formDirective.resetForm(); // This clears the validation state
+  }
 
   get f(): { [key: string]: AbstractControl } {
     return this.form.controls;
@@ -60,9 +69,8 @@ export class SignalEntryFormComponent {
       name: this.form.controls['userControl'].value ?? '',
       round: this.form.controls['roundControl'].value ?? '',
     };
-
+   
     this.service.updatePlayerRound(score);
-    this.form.reset();
-    this.router.navigateByUrl('/signal');
+    this.resetForm();
   }
 }

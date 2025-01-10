@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { AsyncPipe, CommonModule } from '@angular/common';
-import { GameService } from '../services/game.service';
 import { Observable, of } from 'rxjs';
 import { RouterModule } from '@angular/router';
-import { IScore } from '../services/score';
+import { IScore } from '../../services/score';
+import { GameService } from '../../services/behavior-subject/game.service';
+
 
 @Component({
     selector: 'app-dashboard',
