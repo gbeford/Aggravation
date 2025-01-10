@@ -17,3 +17,14 @@ h1 {
 .form-field {
   width: 100%;
 }
+
+.mat-mdc-unelevated-button {
+  color: white !important;
+  background-color: $purple-900 !important;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
