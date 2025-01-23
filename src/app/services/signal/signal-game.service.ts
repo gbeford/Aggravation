@@ -1,7 +1,7 @@
 import { Injectable, signal } from '@angular/core';
 import { IScore } from '../score';
 import { rounds } from '../game-reference';
-import { LocalStorageService } from '../local-storage.service';
+import { LocalStorageService } from '../local-storage/local-storage.service';
 
 @Injectable({
   providedIn: 'root',
