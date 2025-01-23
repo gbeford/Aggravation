@@ -1,4 +1,4 @@
-import { effect, Injectable, signal } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { IScore } from '../score';
 import { rounds } from '../game-reference';
 import { LocalStorageService } from '../local-storage.service';
@@ -14,12 +14,6 @@ export class SignalGameService {
   constructor(localStorage: LocalStorageService) {
     this.setupPlayers();
     this.loadFromLocalStorage();
-    // Synchronize with localStorage whenever the signal changes
-     this.syncLocalStorage();
-    // effect(() => {
-    //   localStorage.setItem('playerData', JSON.stringify(this.playerData()));
-    // });
-    console.log('here signal service');
   }
 
   // set up initial player, round and score then set the signal
@@ -39,16 +33,10 @@ export class SignalGameService {
       player.round = score.round;
       return value;
     });
-    console.log('updatePlayerRound() ------>', this.playerData());
+    localStorage.setItem('playerData', JSON.stringify(this.playerData()));
   }
 
-  private syncLocalStorage() {
-    effect(() => {
-      localStorage.setItem('playerData', JSON.stringify(this.playerData()));
-    });
-  }
-
-   loadFromLocalStorage() {
+  loadFromLocalStorage() {
     const storedValue = localStorage.getItem('playerData');
     if (storedValue) {
       this.playerData.set(JSON.parse(storedValue) as IScore[]);
